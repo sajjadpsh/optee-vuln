@@ -1,0 +1,28 @@
+1) install Prerequisites
+$ sudo apt-get install android-tools-adb android-tools-fastboot autoconf automake bc bison build-essential cscope curl device-tree-compiler expect flex ftp-upload gdisk iasl libattr1-dev libc6:i386 libcap-dev libfdt-dev libftdi-dev libglib2.0-dev libhidapi-dev libncurses5-dev libpixman-1-dev libssl-dev libstdc++6:i386 libtool libz1:i386 make mtools netcat python-crypto python-serial python-wand unzip uuid-dev xdg-utils xterm xz-utils zlib1g-dev
+
+2) Install Android repo
+$ mkdir ~/bin
+$ PATH=~/bin: $PATH
+$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+$ chmod a+x ~/bin/repo
+
+3) git configuration
+$ git config --global user.name "My Name"
+$ git config --global user.email "My Email"
+
+4) get the source code
+$ mkdir -p <optee-project>
+$ cd <optee-project>
+$ repo init -u https://github.com/OP-TEE/manifest.git -m defautl.xml
+$ repo sync -j4 --no-clone-bundle
+
+4)Get the toolchains and solutions
+$ cd build
+$ make toolchains
+$ make -j2 toolchains
+$ make -j ‘nproc’
+
+5) Run
+$ make run CFG_CORE_ASLR=y //run with ASLR feature
+(qemu) c
