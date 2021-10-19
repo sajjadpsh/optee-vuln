@@ -1,5 +1,5 @@
 GDB - Normal world:
-$ rm -rf <qemu-v7-project>/out-br
+$ rm -rf op-tee/out-br
 $ make -j8 run GDBSERVER=y
 -in Normal World window:
 # gdbserver :12345 optee_example_hello_world
