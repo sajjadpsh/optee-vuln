@@ -4,7 +4,7 @@ $ make -j8 run GDBSERVER=y
 -in Normal World window:
 # gdbserver :12345 optee_example_hello_world
 -open new terminal:
-$ <qemu-v7-project>/out-br/host/bin/arm-buildroot-linux-gnueabihf-gdb
-(gdb) set sysroot <qemu-v7-project>/out-br/host/arm-buildroot-linux-gnueabihf/sysroot
+$ op-tee/out-br/host/bin/arm-buildroot-linux-gnueabihf-gdb
+(gdb) set sysroot op-tee/out-br/host/arm-buildroot-linux-gnueabihf/sysroot
 (gdb) target remote :12345
 (gdb) c
